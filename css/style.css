@@ -734,3 +734,24 @@ h3.my-profession
         max-width: 100%;
     }
 }
+
+.service-header
+{
+    color: var(--text-black-900);
+    text-decoration: underline;
+    font-size: 26px;
+    margin:auto;
+}
+
+.service-content
+{
+    color: var(--text-black-700);
+    font-size: 17px;
+    margin:auto;
+}
+
+.new-line
+{
+    padding: 10px 0;
+    display:inline-block;
+}
