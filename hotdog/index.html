@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Joe's Hotdog Stand</title>
+                <style>
+                        h1
+                        {
+                                text-align: center;
+                        }
+                        
+                </style>
+        </head>
+        <body>
+                <h1>Welcome to Joe's Hotdogs</h1>
+                <script>
+                        // function to round to two decimal places
+                        function showMoney(totalMoney)
+                        {
+                                // if money is zero return 0.00
+                                if(totalMoney == 0)
+                                {
+                                        return("0.00");
+                                }
+                                // floor the number
+                                let num = (Math.floor(totalMoney)).toString();
+                                // multiply total by 100 to get the two decimal places and round
+                                totalMoney = totalMoney * 100;
+                                totalMoney = Math.round(totalMoney);
+                                totalMoney = (totalMoney.toString());
+                                // split it and then take out the last two numbers
+                                let finalNum = totalMoney.split("");
+                                finalNum =  num + '.' + finalNum[totalMoney.length-2] + finalNum[totalMoney.length - 1];
+                                return(finalNum);
+                        }
+        
+                        // declaring contant prices of iteam
+                        const priceDogs = 4.99;
+                        const priceFries = 3.99;
+                        const priceSoda = 1.79;
+        
+                        let numDogs = parseInt(prompt("How many hotdogs do you want?"));
+                        let numFries = parseInt(prompt("How many fries do you want?"));
+                        let numSoda = parseInt(prompt("How many sodas do you want?"));
+        
+                        // checking if input is none
+                        if (isNaN(numSoda)) numSoda = 0;
+                        if (isNaN(numFries)) numFries = 0;
+                        if (isNaN(numDogs)) numDogs = 0;
+        
+                        // calculating price of individual items
+                        let totalPriceDogs = showMoney(numDogs*priceDogs);
+                        let totalPriceFries = showMoney(numFries* priceFries);
+                        let totalPriceSoda = showMoney(numSoda*priceSoda);
+        
+                        // total price of items
+                        let money = function() 
+                        {
+                                return showMoney(Number(totalPriceDogs) + Number(totalPriceFries) + Number(totalPriceSoda));
+                        }();
+        
+                        document.write(numDogs + " Hotdogs: " + totalPriceDogs + "<br>");
+                        document.write(numFries + " Fries: " + totalPriceFries + "<br>");
+                        document.write(numSoda + " Soda: " + totalPriceSoda + "<br>");
+                        document.write("Subtotal: " + money + "<br><br>");
+        
+                        // calculating discount if any
+                        let discount = 0;
+                        money = Number(money);
+                        if(money >= 30)
+                        {
+                                discount = 0.1 * money;
+                                discount = Number(showMoney(discount));
+                                money = Number(showMoney(money - discount));
+                                document.write('Discount: -' + discount + "<br>");
+                                document.write("subtotal After discount: " + money + "<br><br>");
+                        }
+        
+                        // calculating tax
+                        tax = Number(showMoney(0.0625 * money));
+                        money = showMoney(money - tax);
+                        document.write('Tax: +' + tax + "<br>");
+                        document.write("<strong>final amount: </strong>" + money + "<br>");
+        
+                        
+                </script>
+        </body>
+</html>
