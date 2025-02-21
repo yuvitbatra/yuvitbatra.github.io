@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Jump button</title>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <style>
+                        .main
+                        {
+                                display: flex;
+                                align-items: center;
+                                flex-direction: column;
+                                height: 100vh;
+                                justify-content: center;
+                        }
+                        h1
+                        {
+                                margin: auto;
+                                text-align: center;
+                        }
+
+                </style>
+        </head>
+        <body>
+                <h1>Click The Button To Jump!!!</h1>
+                <div class="main">
+                        <form>
+                                <input type="text" placeholder="Enter Text" id="lbox">
+                                <input type="button" value="Jump >" id = "jump">
+                                <input type="text" placeholder="Enter Text" id="rbox">
+                        </form>
+                        <h2>Press to jump right</h2>
+                </div>
+                <script>
+                        $(document).ready(function(){
+                                $('#jump').click(function(){
+                                        if($('#jump').val() == "Jump >")
+                                        {
+                                                $('#rbox').val($('#lbox').val());
+                                                $('#lbox').val('');
+                                                $("h2").html("Press to jump left")
+                                                $('#jump').val("< Jump");
+                                        }
+                                        else
+                                        {
+                                                $('#jump').val("Jump >");
+                                                $('#lbox').val($('#rbox').val());
+                                                $("h2").html("Press to jump right")
+                                                $('#rbox').val('');
+                                        }
+                                })
+                        })
+                </script>
+        </body>
+</html>

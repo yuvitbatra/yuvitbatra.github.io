@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <title>SlideShow</title>
+                <style>
+                        img {
+                                height: 300px;
+                                width: 150px;
+                                padding: 5px;
+                                border: 1px solid black;
+                        }
+                        .center {
+                                height: 100vh;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                        }
+                        input {
+                                display: inline-block;
+                                color: #fff;
+                                background-color: #000;
+                                margin: 5px 50px;
+                                padding: 10px;
+                        }
+                        input:hover {
+                                background-color: grey;
+                        }
+                </style>
+        </head>
+        <body>
+                <div class="center">
+                        <h1>SlideShow</h1>
+                        <img src="images/img1.jpg" id="img">
+                        <form>
+                                <input type="button" id="start" value="start">
+                                <input type="button" id="stop" value="stop">
+                        </form>
+                </div>
+                <script>
+                        $(document).ready(function () {
+                                let images = ["images/img1.jpg", "images/img2.jpg", "images/img3.jpg", "images/img4.jpg", "images/img5.jpg"];
+                                let index = 0;
+                                let slideshowInterval;
+
+                                $("#start").click(function () {
+                                        slideshowInterval = setInterval(function () {
+                                                index = (index + 1) % images.length;
+                                                $('#img').fadeOut(1000, function () {
+                                                        $('#img').attr('src', images[index]);
+                                                        $('#img').fadeIn(1000);
+                                                });
+                                        }, 3000);
+                                });
+
+                                $("#stop").click(function () {
+                                        clearInterval(slideshowInterval);
+                                });
+                        });
+                </script>
+        </body>
+</html>

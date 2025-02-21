@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Check Box</title>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <style>
+                        h1
+                        {
+                                margin: auto;
+                                text-align: center;
+                        }
+
+                </style>
+        </head>
+        <body>
+                <h1>Checkbox</h1>
+                <div class="main">
+                        <form>
+                                <input type="checkbox" id="checkall">
+                                <label for="checkall" id="label-checkall">Check All</label><br>
+                                <input type="checkbox" class="checkItem" id="first">
+                                <label for="first">First</label><br>
+                                <input type="checkbox" class="checkItem" id="second">
+                                <label for="second">Second</label><br>
+                                <input type="checkbox" class="checkItem" id="third">
+                                <label for="third">Third</label><br>
+                                <input type="checkbox" class="checkItem" id="fourth">
+                                <label for="fourth">Fourth</label><br>
+                        </form>
+                </div>
+                <script>
+                        $(document).ready(function(){
+                                $('#checkall').change(function(){
+                                        let checked = $(this).prop('checked');
+                                        $('.checkItem').prop('checked', checked);
+                                        $('#label-checkall').text(checked ? "Uncheck All" : "Check All");
+                                });
+
+                                $('.checkItem').change(function(){
+                                        let allChecked = ($('.checkItem:checked').length === $('.checkItem').length);
+                                        $('#checkall').prop('checked', allChecked);
+                                        $('#label-checkall').text(allChecked ? "Uncheck All" : "Check All");
+                                });
+                        });
+                        </script>
+        </body>
+</html>
