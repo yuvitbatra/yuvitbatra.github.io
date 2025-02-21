@@ -312,7 +312,7 @@ nav > div
 .slider
 {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-wrap: wrap;
         gap: 10px;
         margin-bottom: 20px;
