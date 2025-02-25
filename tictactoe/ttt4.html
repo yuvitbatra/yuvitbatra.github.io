@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>TicTacToe</title>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                        body 
+                        {
+                                height: 100vh;
+                                margin: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: column;
+                        }
+                        .square:hover
+                        {
+                                background-color: beige;
+                        }
+                        .square
+                        {
+                                border: 1px solid black;
+                                box-sizing: border-box;
+                                height: 70px;
+                                width: 70px;
+                                margin: 5px;
+                                display: flex;
+                                justify-content:center;
+                                align-items: center;
+                                font-size: 36px;
+                        }
+                        .game 
+                        {
+                                display: flex;
+                                flex-wrap: wrap;
+                                width:240px;
+                        }
+                        h1 
+                        {
+                                text-align: center;
+                        }
+                        .turn
+                        {
+                                border: 1px solid black;
+                                padding: 10px;
+                                margin-bottom: 20px;
+                                font-size: 20px;
+                                font-weight: bold;
+                                width: 200px;
+                                text-align: center;
+                        }
+                        .win_condition
+                        {
+                                border: 2px solid black;
+                                padding: 10px;
+                                margin-top: 20px;
+                                font-size: 20px;
+                                font-weight: bold;
+                                width: 300px;
+                                text-align: center;
+                                min-height: 30px;
+                        }
+                        button {
+                                margin-top: 20px;
+                                padding: 10px 20px;
+                                font-size: 16px;
+                                background-color: #4CAF50;
+                                color: white;
+                                border: none;
+                                border-radius: 5px;
+                                cursor: pointer;
+                        }
+                        button:hover {
+                                background-color: #45a049;
+                        }
+                </style>
+        </head>
+        <body>
+                <h1>Tic-Tac-Toe</h1>
+                <div class="turn"></div>
+                <div class="game">
+                        <script>
+                                const NUM_SQUARES = 9;
+                                for (i=0; i<NUM_SQUARES; i++)
+                                {
+                                        id = "sq"+i;
+                                        document.write( "<div class='square' id='" + id + "'></div>" );
+                                }
+                        </script>
+                </div>
+                <div class="win_condition"></div>
+                <button id="startButton">Start Game</button>
+                <script>
+                        let currentPlayer = "";
+                        let gameActive = false;
+
+                        const turnDisplay = document.querySelector('.turn');
+                        const startButton = document.getElementById('startButton');
+                        const squares = document.querySelectorAll('.square');
+
+                        startButton.addEventListener('click', startGame);
+
+                        squares.forEach(square => 
+                        {
+                                square.addEventListener('click', squareclick);
+                        });
+
+                        function squareclick() 
+                        {
+                                if (!gameActive || this.innerHTML !== "") {
+                                        return;
+                                }
+                                
+                                this.innerHTML = currentPlayer;
+                                checkWin();
+                                
+                                if (!gameActive) return;
+                                
+                                currentPlayer = currentPlayer === "X" ? "O" : "X";
+                                turnDisplay.innerHTML = "It is " + currentPlayer + "'s turn";
+                        }
+
+                        function startGame()
+                        {
+                                squares.forEach(square => 
+                                {
+                                        square.innerHTML = "";
+                                });
+                                
+                                const choices = ['X', 'O'];
+                                currentPlayer = choices[Math.round(Math.random())];
+                                
+                                turnDisplay.innerHTML = "It is " + currentPlayer + "'s turn";
+                                gameActive = true;
+                                document.querySelector('.win_condition').innerHTML = "Win condition:";
+                        }
+
+                        function checkWin()
+                        {
+                                let moves = [];
+
+                                squares.forEach(square => 
+                                {
+                                        moves.push(square.innerHTML || "-");
+                                });
+
+                                let winConditions = [
+                                        moves[0] + moves[1] + moves[2],
+                                        moves[3] + moves[4] + moves[5],
+                                        moves[6] + moves[7] + moves[8],
+                                        moves[0] + moves[3] + moves[6],
+                                        moves[1] + moves[4] + moves[7],
+                                        moves[2] + moves[5] + moves[8],
+                                        moves[0] + moves[4] + moves[8],
+                                        moves[2] + moves[4] + moves[6]
+                                ];
+
+                                if (winConditions.includes("XXX")) {
+                                        document.querySelector('.win_condition').innerHTML = "X wins!";
+                                        gameActive = false;
+                                } else if (winConditions.includes("OOO")) {
+                                        document.querySelector('.win_condition').innerHTML = "O wins!";
+                                        gameActive = false;
+                                } else if (!moves.includes("-")) {
+                                        document.querySelector('.win_condition').innerHTML = "Stalemate!";
+                                        gameActive = false;
+                                }
+                        }
+
+                        window.onload = function() 
+                        {
+                                startGame();
+                        };
+                </script>
+        </body>
+</html>

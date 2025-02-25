@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>TicTacToe</title>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <style>
+                        body 
+                        {
+                                height: 100vh;
+                                margin: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: column;
+                        }
+                        .square:hover
+                        {
+                                background-color: beige;
+                        }
+                        .square
+                        {
+                                border: 1px solid black;
+                                box-sizing: border-box;
+                                height: 70px;
+                                width: 70px;
+                                margin: 5px;
+                                display: flex;
+                                justify-content:center;
+                                align-items: center;
+                                font-size: 36px;
+                        }
+                        .game 
+                        {
+                                display: flex;
+                                flex-wrap: wrap;
+                                width:240px;
+                        }
+                        h1 
+                        {
+                                text-align: center;
+                        }
+                        .turn
+                        {
+                                border: 1px solid black;
+                                padding: 10px;
+                                margin-bottom: 20px;
+                                font-size: 20px;
+                                font-weight: bold;
+                                width: 200px;
+                                text-align: center;
+                        }
+                        .win_condition
+                        {
+                                border: 2px solid black;
+                                padding: 10px;
+                                margin-top: 20px;
+                                font-size: 20px;
+                                font-weight: bold;
+                                width: 300px;
+                                text-align: center;
+                                min-height: 30px;
+                        }
+                </style>
+        </head>
+        <body>
+                <h1>Tic-Tac-Toe</h1>
+                <div class="turn">It is X's turn</div>
+                <div class="game">
+                        <script>
+                                const NUM_SQUARES = 9;
+                                for (i=0; i<NUM_SQUARES; i++)
+                                {
+                                id = "sq"+i;
+                                document.write( "<div class='square' id='" + id + "'></div>" );
+                                }
+                        </script>
+                </div>
+                <div class="win_condition">Win condition:</div>
+                <script>
+                        window.onload = function(){
+                                document.getElementById('sq2').innerText = 'X';
+                                document.getElementById('sq3').innerText = 'O';
+                        }
+                </script>
+
+                
+        </body>
+</html>
