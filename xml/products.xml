@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="products.css"?>
+<products>
+        <heading>Products</heading>
+        <product>
+                <name>Vintage T-shirt</name>
+                <description>Tie-die Grateful Dead T-shirt</description>
+                <price>$35</price>
+                <category>clothing</category>
+                <category>vintage</category>
+        </product>
+        <product>
+                <name>Bluetooth Speaker</name>
+                <description>Portable Bluetooth speaker with 10-hour battery</description>
+                <price>$80</price>
+                <category>electronics</category>
+                <category>audio</category>
+        </product>
+        <product>
+                <name>Smartwatch</name>
+                <description>Fitness tracking smartwatch with heart rate monitor</description>
+                <price>$199</price>
+                <category>electronics</category>
+                <category>fitness</category>
+        </product>
+        <product>
+                <name>Wireless Earbuds</name>
+                <description>Noise-cancelling wireless earbuds with 20-hour battery life</description>
+                <price>$120</price>
+                <category>electronics</category>
+                <category>audio</category>
+        </product>
+        <product>
+                <name>Electric Kettle</name>
+                <description>Stainless steel electric kettle with auto-shutoff</description>
+                <price>$40</price>
+                <category>home</category>
+                <category>appliances</category>
+        </product>
+        <product>
+                <name>Desk Lamp</name>
+                <description>Adjustable LED desk lamp with USB charging port</description>
+                <price>$55</price>
+                <category>home</category>
+                <category>electronics</category>
+        </product>
+        <product>
+                <name>Backpack</name>
+                <description>Water-resistant backpack with laptop compartment</description>
+                <price>$70</price>
+                <category>accessories</category>
+                <category>travel</category>
+        </product>
+        <product>
+                <name>Air Purifier</name>
+                <description>HEPA air purifier for large rooms</description>
+                <price>$150</price>
+                <category>home</category>
+                <category>health</category>
+        </product>
+</products>

@@ -1,0 +1,53 @@
+{
+        "products": 
+        [
+                {
+                        "name": "Vintage T-shirt",
+                        "description": "Tie-die Grateful Dead T-shirt",
+                        "price": "$35",
+                        "categories": ["clothing", "vintage"]
+                },
+                {
+                        "name": "Bluetooth Speaker",
+                        "description": "Portable Bluetooth speaker with 10-hour battery",
+                        "price": "$80",
+                        "categories": ["electronics", "audio"]
+                },
+                {
+                        "name": "Smartwatch",
+                        "description": "Fitness tracking smartwatch with heart rate monitor",
+                        "price": "$199",
+                        "categories": ["electronics", "fitness"]
+                },
+                {
+                        "name": "Wireless Earbuds",
+                        "description": "Noise-cancelling wireless earbuds with 20-hour battery life",
+                        "price": "$120",
+                        "categories": ["electronics", "audio"]
+                },
+                {
+                        "name": "Electric Kettle",
+                        "description": "Stainless steel electric kettle with auto-shutoff",
+                        "price": "$40",
+                        "categories": ["home", "appliances"]
+                },
+                {
+                        "name": "Desk Lamp",
+                        "description": "Adjustable LED desk lamp with USB charging port",
+                        "price": "$55",
+                        "categories": ["home", "electronics"]
+                },
+                {
+                        "name": "Backpack",
+                        "description": "Water-resistant backpack with laptop compartment",
+                        "price": "$70",
+                        "categories": ["accessories", "travel"]
+                },
+                {
+                        "name": "Air Purifier",
+                        "description": "HEPA air purifier for large rooms",
+                        "price": "$150",
+                        "categories": ["home", "health"]
+                }
+        ]
+}
