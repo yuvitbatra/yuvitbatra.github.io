@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="volunteer, teach kids, math tutoring, education">
+        <link rel="icon" type="image/png" sizes="64x64" href="images/icon.png">
+        <title>EduVolunteer - Mission</title>
+
+        <!-- External Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        </script>
+
+        <style>
+                :root 
+                {
+                        --primary-color: #2e8b57; /* Sea Green */
+                        --hover-color: #1f6b3d; /* Darker Green for hover effects */
+                        --font-primary: 'Poppins', sans-serif;
+                        --font-logo: 'Caveat', cursive;
+                        --text-color: #333;
+                        --background-color: #FAF3E0;
+                        --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                        --transition-speed: 0.3s ease;
+                }
+
+                body 
+                {
+                        background-color: var(--background-color);
+                        font-family: var(--font-primary);
+                        color: var(--text-color);
+                        margin: 0;
+                }
+
+                .main 
+                {
+                        padding-top: 80px; /* Adjust for fixed navbar */
+                }
+
+                /* Mission Content Section */
+                .content 
+                {
+                        padding: 40px 20px;
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        text-align: center;
+                }
+
+                .content h1 
+                {
+                        font-family: var(--font-primary);
+                        font-size: 2.5rem;
+                        color: var(--primary-color);
+                        text-align: center;
+                        margin: 100px auto 0;
+                        padding: 10px 20px;
+                        background-color: white;
+                        border-radius: 15px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        width: fit-content; 
+                        margin-bottom: 10px;
+                }
+
+                .content h1::after 
+                {
+                        content: "";
+                        display: block;
+                        width: 60px;
+                        height: 4px;
+                        background-color: var(--primary-color);
+                        margin: 10px auto 0;
+                        border-radius: 2px;
+                }
+                .content p 
+                {
+                        font-size: 1.1rem;
+                        line-height: 1.8;
+                        color: #555;
+                        margin: 0 auto 40px;
+                        max-width: 800px;
+                }
+
+                .navbar
+                {
+                        background-image: url(images/backdrop.jpeg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 0 20px;
+                        height: 80px;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        width: 100%;
+                        box-sizing: border-box;
+                        z-index: 1000; /* Ensure navbar is above other content */
+                }
+
+                .logo-container
+                {
+                        display: flex;
+                        align-items: center;
+                        gap: 15px; /* Space between logo and text */
+                }
+
+                .navbar img
+                {
+                        max-width: 60px; /* Smaller logo for a compact navbar */
+                        border-radius: 50%; /* Rounded logo for a modern look */
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+                }
+
+                .navbar h1
+                {
+                        font-family: "Caveat", cursive;
+                        font-size: 24px; /* 24px */
+                        color: white;
+                        margin: 0; /* Remove default margin for better alignment */
+                }
+
+                .nav-links
+                {
+                        display: flex;
+                        gap: 30px; /* Reduced gap for better spacing */
+                        margin: 0;
+                        padding: 0;
+                        align-items: center;
+                }
+
+                .nav-links li
+                {
+                        list-style-type: none;
+                }
+
+                .nav-links li a
+                {
+                        text-decoration: none;
+                        font-family: "Poppins", sans-serif;
+                        color: white;
+                        font-weight: bold;
+                        padding: 10px 15px; /* Increased padding for better clickability */
+                        transition: background-color 0.3s ease, color 0.3s ease;
+                }
+
+                .nav-links li a:hover
+                {
+                        background-color:  rgb(46, 154, 43); /* Hover background color */
+                        border-radius: 5px;
+                        color: white;
+                }
+
+                /* Mission Services List */
+                .mission-services 
+                {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        justify-content: center;
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                }
+
+                .mission-services li 
+                {
+                        background: white;
+                        border-radius: 15px;
+                        box-shadow: var(--box-shadow);
+                        padding: 20px;
+                        flex: 1 1 calc(33.333% - 40px);
+                        max-width: 350px;
+                        transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed);
+                        cursor: pointer;
+                }
+
+                /* Hover Effects */
+                @media (hover: hover) 
+                {
+                        .mission-services li:hover 
+                        {
+                                transform: translateY(-10px);
+                                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                                background: var(--primary-color);
+                        }
+
+                        .mission-services li:hover h2,
+                        .mission-services li:hover p,
+                        .mission-services li:hover .icon 
+                        {
+                                color: white;
+                        }
+                }
+
+                /* Active State for Touch Devices */
+                .mission-services li:active 
+                {
+                        transform: translateY(-10px);
+                        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                        background: var(--primary-color);
+                }
+
+                .mission-services li:active h2,
+                .mission-services li:active p,
+                .mission-services li:active .icon 
+                {
+                        color: white;
+                }
+
+                .mission-services h2 
+                {
+                        font-size: 1.5rem;
+                        color: var(--primary-color);
+                        margin-bottom: 10px;
+                        font-weight: 600;
+                        transition: color var(--transition-speed);
+                }
+
+                .mission-services p 
+                {
+                        font-size: 1rem;
+                        color: #555;
+                        line-height: 1.6;
+                        margin: 0;
+                        transition: color var(--transition-speed);
+                }
+
+                .icon 
+                {
+                        font-size: 2rem;
+                        color: var(--primary-color);
+                        margin-bottom: 15px;
+                        transition: color var(--transition-speed);
+                }
+
+                /* Footer */
+                .footer 
+                {
+                        text-align: center;
+                        padding: 20px;
+                        background: var(--primary-color);
+                        color: white;
+                        margin-top: 40px;
+                }
+
+                .footer p 
+                {
+                        margin: 0;
+                        font-size: 1rem;
+                }
+
+                .social-links a 
+                {
+                        color: white;
+                        text-decoration: none;
+                        margin: 0 10px;
+                        font-size: 1.2rem;
+                }
+
+                /* Responsive Design */
+                @media (max-width: 768px) 
+                {
+                        .mission-services li 
+                        {
+                                flex: 1 1 100%;
+                                max-width: 100%;
+                        }
+                }
+
+                #check
+                {
+                    display: none;
+                }
+
+                .checkbtn
+                {
+                    display: none; 
+                    font-size: 40px; 
+                    color: var(--text-color); 
+                    cursor: pointer;
+                    order: 2;
+                    margin-left: auto;
+                    padding: 10px;
+                    transition: color 0.3s ease; 
+                }
+
+                .checkbtn:hover
+                {
+                    color: var(--hover-color); 
+                }
+
+                @media (max-width: 1070px)
+                {
+                    .checkbtn
+                    {
+                        display: block;
+                        color: white;
+                        order: 1;
+                        margin-right: 20px;
+                    }
+
+                    .nav-links
+                    {
+                        position: fixed;
+                        top: 80px;
+                        right: -100%;
+                        background-color: green;
+                        width: 100%;
+                        height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        transition: all 0.3s;
+                    }
+
+                    .nav-links li
+                    {
+                        margin: 20px 0;
+                    }
+
+                    .nav-links li a
+                    {
+                        font-size: 20px;
+                    }
+
+                    #check:checked ~ .nav-links
+                    {
+                        right: 0;
+                    }
+                }
+        </style>
+</head>
+<body>
+        <div class="main">
+                <nav class="navbar">
+                        <div class="logo-container">
+                                <a href="index.html"><img src="images/icon.png" alt="EduVolunteer Logo"></a>
+                                <h1>EduVolunteer</h1>
+                        </div>
+
+                        <input type="checkbox" id="check">
+                        <label for="check" class="checkbtn">
+                                <i class="fas fa-bars"></i>
+                        </label>
+
+                        <ul class="nav-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="mission.html">Mission</a></li>
+                                <li><a href="products.html">Products</a></li>
+                                <li><a href="volunteer.html">Volunteer</a></li>
+                                <li><a href="testimonials.html">Testimonials</a></li>
+                                <li><a href="faqs.html">FAQs</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                </nav>
+
+                <!-- Mission Content -->
+                <div class="content">
+                        <h1>Our Mission</h1>
+                        <p>At EduVolunteer, our mission is to bridge the gap in education and resources for underprivileged communities. We believe in empowering individuals through knowledge, support, and opportunities.</p>
+
+                        <ul class="mission-services">
+                                <li>
+                                        <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                                        <h2>Teaching Underprivileged Students</h2>
+                                        <p>We provide free basic education to underprivileged students, focusing on core subjects like math, English, and science. Our volunteers work closely with children to help them build a strong foundation for their future.</p>
+                                </li>
+                                <li>
+                                        <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                                        <h2>Providing Essential Resources</h2>
+                                        <p>Beyond education, we recognize the importance of addressing basic needs. EduVolunteer collaborates with local organizations to provide healthcare, nutritious food, and school supplies to underprivileged communities.</p>
+                                </li>
+                                <li>
+                                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                                        <h2>Safe and Comfortable Volunteering Platform</h2>
+                                        <p>We offer a secure and welcoming platform for volunteers to contribute their time and skills. Whether you're teaching, organizing resources, or mentoring, we ensure a safe and supportive environment for all volunteers.</p>
+                                </li>
+                        </ul>
+                </div>
+        </div>
+
+        <div class="footer">
+                <p>&copy; 2025 EduVolunteer. All Rights Reserved.</p>
+                <div class="social-links">
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
+                        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                </div>
+        </div>
+</body>
+</html>

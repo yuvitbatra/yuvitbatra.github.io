@@ -1,0 +1,52 @@
+{
+    "products": [
+        {
+            "name": "Handmade Tote Bag",
+            "desc": "Eco-friendly tote bag handcrafted by local artisans",
+            "price": "$20",
+            "categories": ["Accessories", "Sustainable"]
+        },
+        {
+            "name": "Recycled Paper Notebook",
+            "desc": "A5-sized notebook made from 100% recycled paper",
+            "price": "$10",
+            "categories": ["Stationery", "Eco-Friendly"]
+        },
+        {
+            "name": "Charity T-Shirt",
+            "desc": "Soft cotton t-shirt with a printed NGO logo and cause message",
+            "price": "$25",
+            "categories": ["Clothing", "Awareness"]
+        },
+        {
+            "name": "Reusable Water Bottle",
+            "desc": "Stainless steel insulated bottle to keep drinks hot or cold",
+            "price": "$18",
+            "categories": ["Accessories", "Eco-Friendly"]
+        },
+        {
+            "name": "Handmade Soap Set",
+            "desc": "Organic, chemical-free soap set with natural fragrances",
+            "price": "$15",
+            "categories": ["Personal Care", "Eco-Friendly"]
+        },
+        {
+            "name": "Upcycled Jewelry",
+            "desc": "Beautiful handmade jewelry crafted from upcycled materials",
+            "price": "$30",
+            "categories": ["Accessories", "Sustainable"]
+        },
+        {
+            "name": "Inspirational Quote Mug",
+            "desc": "Ceramic mug featuring an inspiring quote supporting the cause",
+            "price": "$12",
+            "categories": ["Home", "Awareness"]
+        },
+        {
+            "name": "Fundraiser Calendar",
+            "desc": "12-month calendar featuring artwork and stories from beneficiaries",
+            "price": "$22",
+            "categories": ["Stationery", "Awareness"]
+        }
+    ]
+}

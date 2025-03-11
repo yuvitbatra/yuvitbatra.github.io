@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = navbar.css>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Products</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="images/icon.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --secondary-color: #264653;
+            --light-bg: #FAF3E0;
+            --text-color: #ffffff;
+            --primary-color: #2E8B57; /* Sea Green */
+            --hover-color: rgb(46, 154, 43); /* Dark Green for hover effects */
+            --font-primary: "Poppins", sans-serif;
+            --font-logo: "Caveat", cursive;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            padding: 20px;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        /* Button & Product Styles */
+        h1 {
+            color: var(--primary-color);
+            font-size: 32px;
+            margin-top: 100px; /* To avoid overlap with fixed navbar */
+        }
+
+        button, select {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            margin: 10px;
+        }
+
+        button:hover, select:hover {
+            background-color: var(--hover-color);
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            color: var(--text-color);
+            border: 2px solid var(--primary-color);
+            background: grey;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        #result {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product h2 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .product p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #e76f51;
+        }
+
+        .categories {
+            font-size: 12px;
+            color: var(--secondary-color);
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        .navbar {
+            background-image: url('images/backdrop.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar img {
+            max-width: 60px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar h1 {
+            font-family: var(--font-logo);
+            font-size: 24px;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-links li {
+            list-style-type: none;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            font-family: var(--font-primary);
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: var(--hover-color);
+            border-radius: 5px;
+        }
+
+
+        .content h1 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 100px auto 0;
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: fit-content; 
+        }
+
+        .content h1::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        .filter-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+            margin: 20px 0; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <a href="index.html"><img src="images/icon.png" alt="EduVolunteer Logo"></a>
+            <h1>EduVolunteer</h1>
+        </div>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+        </label>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <div class="content">
+        <h1>FUNDRAISER</h1>
+    </div>
+
+    <button id="loadData">Load Products</button>
+    <div class="filter-container">
+        <label for="category">Choose a category:</label>
+        <select id="category"></select>
+    </div>
+
+    <div id="result"></div>
+    <script>
+        $(document).ready(function() {
+                let productsData = [];
+
+                // Load products and populate categories
+                $('#loadData').click(function() {
+                    $.get('eduproducts.json', function(data) {
+                        productsData = data.products;
+
+                        // Display all products initially
+                        displayProducts(productsData);
+
+                        // Extract unique categories
+                        const categories = new Set();
+                        data.products.forEach(product => {
+                            product.categories.forEach(category => categories.add(category));
+                        });
+
+                        // Populate dropdown
+                        $('#category').empty();
+                        $('#category').append(`<option value="all">All Categories</option>`); // Add "All Categories" option
+                        categories.forEach(category => {
+                            $('#category').append(`<option value="${category}">${category}</option>`);
+                        });
+                    });
+                });
+
+                // Filter products as soon as a category is selected
+                $('#category').change(function() {
+                    const selectedCategory = $('#category').val();
+                    if (selectedCategory === "all") {
+                        // Show all products if "All Categories" is selected
+                        displayProducts(productsData);
+                    } else {
+                        // Filter products based on the selected category
+                        const filteredProducts = productsData.filter(product => 
+                            product.categories.includes(selectedCategory)
+                        );
+                        displayProducts(filteredProducts);
+                    }
+                });
+
+                // Function to display all products
+                function displayProducts(products) {
+                    let output = '';
+                    products.forEach(product => {
+                        output += `
+                            <div class="product">
+                                <h2>${product.name}</h2>
+                                <p>${product.desc}</p>
+                                <p class="price">Price: ${product.price}</p>
+                                <p class="categories">Categories: ${product.categories.join(', ')}</p>
+                            </div>
+                        `;
+                    });
+                    $('#result').html(output);
+                }
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="volunteer, teach kids, math tutoring, education, contact">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/icon.png">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>EduVolunteer - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="stylepages.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-container p {
+            font-size: 16px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 10px 0 5px;
+            color: black;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            pointer-events: auto;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .contact-form textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .contact-form button {
+            background-color: #2E8B57;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: rgb(46, 154, 43);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #2E8B57;
+            color: white;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        /* Team Section */
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        .team-member {
+            flex: 1 1 calc(33.333% - 40px); /* 3 columns on desktop */
+            max-width: calc(33.333% - 40px); 
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            color: #2E8B57;
+            font-size: 22px;
+            margin: 10px 0;
+        }
+
+        .team-member p {
+            font-size: 16px;
+            color: #555;
+        }
+
+
+        /* Responsive Design for Team Section */
+        @media (max-width: 768px) {
+            .team-member {
+                flex: 1 1 calc(50% - 40px); /* 2 columns on tablets */
+                max-width: calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-member {
+                flex: 1 1 100%; /* 1 column on mobile */
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/icon.png" alt="EduVolunteer Logo"></a>
+                <h1>EduVolunteer</h1>
+            </div>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                    <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+            
+        <div class="content">
+            <h1>CONTACT US</h1>
+
+            <!-- Team Section -->
+            <div class="team">
+                <!-- First Row -->
+                <div class="team-member">
+                    <img src="images/team1.jpg" alt="John Doe, Co-Founder & CEO of EduVolunteer" />
+                    <h3>John Doe</h3>
+                    <p>Co-Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team2.jpg" alt="Jane Smith, Head of Operations at EduVolunteer" />
+                    <h3>Jane Smith</h3>
+                    <p>Head of Operations</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team3.jpg" alt="Mike Johnson, Lead Developer at EduVolunteer" />
+                    <h3>Mike Johnson</h3>
+                    <p>Lead Developer</p>
+                </div>
+
+                <!-- Second Row -->
+                <div class="team-member">
+                    <img src="images/team1.jpg" alt="Sarah Brown, Marketing Manager at EduVolunteer" />
+                    <h3>Sarah Brown</h3>
+                    <p>Marketing Manager</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team2.jpg" alt="David Wilson, Content Strategist at EduVolunteer" />
+                    <h3>David Wilson</h3>
+                    <p>Content Strategist</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/team3.jpg" alt="Emily Davis, Volunteer Coordinator at EduVolunteer" />
+                    <h3>Emily Davis</h3>
+                    <p>Volunteer Coordinator</p>
+                </div>
+            </div>
+        
+            <!-- Contact Form -->
+            <div class="contact-container">
+                <p>Have questions? Feel free to reach out to us.</p>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 EduVolunteer. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#contactForm").submit(function(event) {
+                event.preventDefault();
+                alert("Thank you for reaching out! We'll get back to you soon.");
+                $("#contactForm")[0].reset();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+:root
+{
+        --background-color: #FAF3E0; /* Off white */
+        --navbar-overlay: rgba(0, 0, 0, 0.6); /* Dark overlay for better contrast */
+        --primary-color: #2E8B57; /* Sea Green */
+        --hover-color: rgb(46, 154, 43); /* Dark Green for hover effects */
+        --text-color: white; /* White text for readability */
+        --font-primary: "Poppins", sans-serif;
+        --font-logo: "Caveat", cursive;
+}
+
+body
+{
+        background-color: #FAF3E0;
+        margin: 0;
+        font-family: var(--font-primary);
+}
+
+/* Navbar Styles */
+.navbar
+{
+        background-image: url(images/backdrop.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.main::before 
+{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%; 
+}
+
+.logo-container
+{
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Space between logo and text */
+}
+
+.navbar img
+{
+        max-width: 60px; /* Smaller logo for a compact navbar */
+        border-radius: 50%; /* Rounded logo for a modern look */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.navbar h1
+{
+        font-family: var(--font-logo);
+        font-size: 24px; /* 24px */
+        color: var(--text-color);
+        margin: 0; /* Remove default margin for better alignment */
+}
+
+.nav-links
+{
+        display: flex;
+        gap: 30px; /* Reduced gap for better spacing */
+        margin: 0;
+        padding: 0;
+        align-items: center;
+}
+
+.nav-links li
+{
+        list-style-type: none;
+}
+
+.nav-links li a
+{
+        text-decoration: none;
+        font-family: var(--font-primary);
+        color: var(--text-color);
+        font-weight: bold;
+        padding: 10px 15px; /* Increased padding for better clickability */
+        transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover
+{
+        background-color: var(--hover-color); /* Hover background color */
+        border-radius: 5px;
+        color: var(--text-color);
+}
+
+
+
+.main
+{
+        background-color: #FAF3E0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+}
+
+.main div
+{
+        font-family: var(--font-primary);
+        color: var(--text-color);
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+}
+
+/* Page Title Styles */
+.content h1 {
+    font-family: var(--font-primary);
+    font-size: 2.5rem; /* Large font size for emphasis */
+    color: var(--primary-color); /* Use the primary color (Sea Green) */
+    text-align: center;
+    margin: 100px auto 0; /* Add space below the fixed navbar and center horizontally */
+    padding: 10px 320px; /* Add padding inside the box */
+    justify-content: center;
+    position: relative;
+    z-index: 1; /* Ensure it appears above other content */
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255); /* Semi-transparent white background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Optional: Add a subtle shadow or underline for emphasis */
+.content h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0; /* Center the underline */
+    border-radius: 2px;
+}
+
+.footer 
+{
+        background-color: var(--secondary);
+        color:var(--primary);
+        text-align: center;
+        padding: 20px;
+        font-size: 16px;
+        margin-top: 0px;
+        text-decoration: none;
+        box-sizing: border-box;
+        display: fixed;
+}
+
+.social-links a 
+{
+        color: var(--primary);
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+        font-size: 18px;
+}
+
+.social-links a:hover
+{
+        color: var(--accent)
+}
+
+#check
+{
+	display: none;
+}
+
+.checkbtn
+{
+	display: none; 
+	font-size: 40px; 
+	color: var(--text-color); 
+	cursor: pointer;
+	order: 2;
+	margin-left: auto;
+	padding: 10px;
+	transition: color 0.3s ease; 
+}
+
+.checkbtn:hover
+{
+	color: var(--hover-color); 
+}
+
+@media (max-width: 1070px)
+{
+	.checkbtn
+	{
+		display: block;
+                color: white;
+		order: 1;
+		margin-right: 20px;
+	}
+
+	ul
+	{
+		position: fixed;
+		top: 80px;
+		right: -100%;
+		background-color: green;
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: all 0.3s;
+	}
+
+	ul li
+	{
+		margin: 20px 0;
+	}
+
+	ul li a
+	{
+		font-size: 20px;
+	}
+
+	#check:checked ~ ul
+	{
+		right: 0;
+	}
+}

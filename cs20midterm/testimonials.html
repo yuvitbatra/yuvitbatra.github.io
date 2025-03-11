@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="volunteer, teach kids, math tutoring, education, FAQs">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/icon.png">
+    <link rel="stylesheet" href="navbar.css">
+    <title>Volunteer page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="stylepages.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #FAF3E0; /* Off white */
+            --primary-color: #2E8B57; /* Sea Green */
+            --hover-color: rgb(46, 154, 43); /* Dark Green for hover effects */
+            --text-color: white; /* White text for readability */
+            --font-primary: "Poppins", sans-serif;
+            --font-logo: "Caveat", cursive;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-primary);
+            background-color: var(--background-color);
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .content h1 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 100px auto 0;
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+
+        /* Testimonials Section */
+        .volunteer-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            color: #333;
+            font-style: italic;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .testimonial h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            text-align: right;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2rem;
+                padding: 10px;
+                margin: 80px 0 10px;
+            }
+
+            .volunteer-container {
+                padding: 10px;
+            }
+
+            .testimonial {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .testimonial p {
+                font-size: 14px;
+            }
+
+            .testimonial h4 {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content h1 {
+                font-size: 1.8rem;
+                margin: 60px 0 10px;
+            }
+
+            .testimonial {
+                padding: 10px;
+                margin: 10px 0;
+            }
+
+            .testimonial p {
+                font-size: 13px;
+            }
+
+            .testimonial h4 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/icon.png" alt="EduVolunteer Logo"></a>
+                <h1>EduVolunteer</h1>
+            </div>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <!-- Heading will be dynamically added here if it doesn't exist -->
+        </div> 
+
+        <div class="volunteer-container">
+            <div id="testimonials-container"></div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 EduVolunteer. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const testimonials = [
+            { text: "Volunteering with EduVolunteer has been an incredibly rewarding experience. Teaching young children and seeing their progress has given me a new sense of purpose.", author: "John, Volunteer" },
+            { text: "The support and education I received from EduVolunteer changed my life. I was struggling in school, but with the help of my tutor, I now feel confident in my studies.", author: "Doe, Student Beneficiary" },
+            { text: "EduVolunteer is doing amazing work. Knowing that my small efforts are making a difference keeps me coming back to teach and mentor these kids.", author: "Anonymous, Volunteer" }
+        ];
+
+        // Ensure the heading exists and is styled correctly
+        const contentDiv = document.querySelector(".content");
+        if (!contentDiv.querySelector("h1")) {
+            const heading = document.createElement("h1");
+            heading.textContent = "TESTIMONIALS";
+            contentDiv.appendChild(heading);
+        }
+
+        // Add testimonials
+        const testimonialsContainer = document.getElementById("testimonials-container");
+
+        testimonials.forEach(testimonial => {
+            const testimonialDiv = document.createElement("div");
+            testimonialDiv.classList.add("testimonial"); 
+
+            const testimonialText = document.createElement("p");
+            testimonialText.textContent = `"${testimonial.text}"`;
+
+            const testimonialAuthor = document.createElement("h4");
+            testimonialAuthor.textContent = `- ${testimonial.author}`;
+
+            testimonialDiv.appendChild(testimonialText);
+            testimonialDiv.appendChild(testimonialAuthor);
+            testimonialsContainer.appendChild(testimonialDiv);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="volunteer, teach kids, math tutoring, education, contact">
+    <link rel="icon" type="image/png" sizes="64x64" href="images/icon.png">
+    <title>EduVolunteer - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="stylepages.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .contact-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-container h1 {
+            font-size: 28px;
+            color: #2E8B57;
+            margin-bottom: 10px;
+        }
+
+        .contact-container p {
+            font-size: 16px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 10px 0 5px;
+            color: black;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .contact-form textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .contact-form button {
+            background-color: #2E8B57;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-form button:hover {
+            background-color: rgb(46, 154, 43);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/icon.png" alt="EduVolunteer Logo"></a>
+                <h1>EduVolunteer</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="volunteer.html">Volunteer</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p>Have questions? Feel free to reach out to us.</p>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 EduVolunteer. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#contactForm").submit(function(event) {
+                event.preventDefault();
+                alert("Thank you for reaching out! We'll get back to you soon.");
+                $("#contactForm")[0].reset();
+            });
+        });
+    </script>
+</body>
+</html>

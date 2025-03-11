@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="keywords" content="volunteer, teach kids, math tutoring, education">
+                <link rel="icon" type="image/png" sizes="64x64" href="images/icon.png">
+                <title>EduVolunteer - HomePage</title>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+                <link rel="stylesheet" href="styles.css">
+                <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+                <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        </head>
+        <body>
+                <div class="main">
+                        <nav class="navbar">
+                                <div class="logo-container">
+                                        <a href="index.html"><img src="images/icon.png" alt="EduVolunteer Logo"></a>
+                                        <h1>EduVolunteer</h1>
+                                </div>
+                                <input type="checkbox" id="check">
+                                <label for="check" class="checkbtn">
+                                        <i class="fas fa-bars"></i> <!-- Hamburger icon -->
+                                </label>
+                                <ul class="nav-links">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="mission.html">Mission</a></li>
+                                        <li><a href="products.html">Products</a></li>
+                                        <li><a href="volunteer.html">Volunteer</a></li>
+                                        <li><a href="testimonials.html">Testimonials</a></li>
+                                        <li><a href="faqs.html">FAQs</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                        </nav>
+                        <div class="cta">
+                                <p>EDUVOLUNTEER PRESENTS</p>
+                                <h2>Empowering the underresourced youth of tomorrow.</h2><br/>
+                                <a href="volunteer.html">VOLUNTEER</a>
+                        </div>        
+                </div>
+                <div class="hero">
+                        <div class="hero-content">
+                                <i class="fas fa-hand-holding-heart mission-icon"></i> <!-- Font Awesome mission icon -->
+                                <h1>Our Mission</h1>
+                                <p>At EduVolunteer, we are committed to empowering underprivileged youth through education. By providing free math tutoring, mentorship, and educational resources, we aim to create a brighter future for the next generation. Join us in making a difference today!</p>
+                                <a href="volunteer.html" class="cta-button">JOIN US</a>
+                        </div>
+                </div>
+                <div class="slideshow-container">
+                        <div class="slideshow"></div>
+                        <div class="controls">
+                                <button id="prev"><i class="fas fa-chevron-left"></i> Previous</button>
+                                <button id="next">Next <i class="fas fa-chevron-right"></i></button>
+                        </div>
+                </div>
+                <div class="footer">
+                        <p>&copy; 2025 EduVolunteer. All Rights Reserved.</p>
+                        <div class="social-links">
+                                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+                                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a> |
+                                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+                        </div>
+                </div>
+
+                <script>
+                        $(document).ready(function () 
+                        {
+                                const mainSection = $('.main');
+                                const heroSection = $(".hero");
+                                const ctaSection = $('.cta');
+                                const windowHeight = $(window).height();
+
+                                // Function to check if an element is in the viewport
+                                function isInViewport(element) 
+                                {
+                                        const scrollPosition = $(window).scrollTop();
+                                        if(scrollPosition == 0)
+                                        {
+                                                $('.navbar').removeClass('scroll');
+                                        }
+                                        else
+                                        {
+                                                $('.navbar').addClass('scroll');
+                                        }
+                                        const elementOffset = element.offset().top;
+                                        return scrollPosition > elementOffset - windowHeight + 200;
+                                }
+
+                                // Fade in CTA section on page load if it's in the viewport
+                                if (isInViewport(ctaSection)) 
+                                {
+                                        ctaSection.stop().animate({ opacity: 1 }, 2000); // Fade in over 2 seconds
+                                }
+
+                                // Fade in hero section when it comes into view
+                                $(window).scroll(function () 
+                                {
+                                        if (isInViewport(heroSection) && heroSection.css('opacity') === '0') 
+                                        {
+                                                // Fade in the hero section
+                                                heroSection.stop().animate({ opacity: 1 }, 1000, function () 
+                                                {
+                                                        // After hero section fades in, fade in the hero content
+                                                        $('.hero-content').stop().animate({ opacity: 1, translateY: 0 }, 1000);
+                                                });
+                                        }
+                                });
+
+                                // Trigger scroll event on page load to check initial visibility
+                                $(window).trigger('scroll');
+
+                                // Fetch JSON data and populate slideshow
+                                fetch('eduproducts.json') // Updated filename
+                                        .then(response => response.json())
+                                        .then(data => 
+                                        {
+                                                const slideshow = $(".slideshow");
+                                                const products = data.products;
+
+                                                products.forEach((product, index) => 
+                                                {
+                                                        const slideHTML = `
+                                                                <div class="slide ${index === 0 ? 'active' : ''}">
+                                                                        <img src="images/product${index + 1}.jpg" alt="${product.name}">
+                                                                        <div class="slide-content">
+                                                                                <h1>${product.name}</h1>
+                                                                                <h2>${product.desc}</h2>
+                                                                                <p class="highlight">${product.price}</p>
+                                                                                <p>Categories: ${product.categories.join(', ')}</p>
+                                                                        </div>
+                                                                </div>
+                                                        `;
+                                                        slideshow.append(slideHTML);
+                                                });
+
+                                                let currentIndex = 0;
+                                                const slides = $(".slide");
+                                                const totalSlides = slides.length;
+
+                                                function showSlide(index)
+                                                {
+                                                        slides.removeClass("active");
+                                                        $(slides[index]).addClass("active");
+                                                }
+
+                                                $("#next").click(function ()
+                                                {
+                                                        currentIndex = (currentIndex + 1) % totalSlides;
+                                                        showSlide(currentIndex);
+                                                });
+
+                                                $("#prev").click(function ()
+                                                {
+                                                        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                                                        showSlide(currentIndex);
+                                                });
+                                        })
+                                        .catch(error => console.error('Error loading products:', error));
+                        });
+                </script>
+        </body>
+</html>

@@ -1,0 +1,465 @@
+:root
+{
+        --background-color: #FAF3E0; /* Off white */
+        --navbar-overlay: rgba(0, 0, 0, 0.6); /* Dark overlay for better contrast */
+        --primary-color: #2E8B57; /* Sea Green */
+        --hover-color: rgb(46, 154, 43); /* Dark Green for hover effects */
+        --text-color: white; /* White text for readability */
+        --font-primary: "Poppins", sans-serif;
+        --font-logo: "Caveat", cursive;
+}
+
+body
+{
+        background-color: var(--background-color);
+        margin: 0;
+        font-family: var(--font-primary);
+}
+
+/* Navbar Styles */
+.navbar
+{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+        z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.main::before 
+{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: calc(100vh);
+        background: var(--navbar-overlay); 
+}
+
+.logo-container
+{
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Space between logo and text */
+}
+
+.navbar img
+{
+        max-width: 60px; /* Smaller logo for a compact navbar */
+        border-radius: 50%; /* Rounded logo for a modern look */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.navbar h1
+{
+        font-family: var(--font-logo);
+        font-size: 24px; /* 24px */
+        color: var(--text-color);
+        margin: 0; /* Remove default margin for better alignment */
+}
+
+.nav-links
+{
+        display: flex;
+        gap: 30px; /* Reduced gap for better spacing */
+        margin: 0;
+        padding: 0;
+        align-items: center;
+}
+
+.nav-links li
+{
+        list-style-type: none;
+}
+
+.nav-links li a
+{
+        text-decoration: none;
+        font-family: var(--font-primary);
+        color: var(--text-color);
+        font-weight: bold;
+        padding: 10px 15px; /* Increased padding for better clickability */
+        transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover
+{
+        background-color: var(--hover-color); /* Hover background color */
+        border-radius: 5px;
+        color: var(--text-color);
+}
+
+/* CTA Section Styles */
+.cta
+{
+        text-align: center;
+        color: var(--text-color);
+        z-index: 1; /* Ensure CTA is above the overlay */
+        max-width: 800px; /* Limit width for better readability */
+        padding: 20px;
+        opacity: 0; /* Initially hidden */
+}
+
+.cta h2
+{
+        font-size: 40px; /* 40px */
+        margin: 0 0 20px 0; /* Add spacing below the heading */
+        font-weight: bold;
+}
+
+.cta p
+{
+        font-size: 18px; /* 18px */
+        margin: 0 0 30px 0; /* Add spacing below the paragraph */
+        position: relative; /* Required for pseudo-elements */
+        display: inline-block; /* Ensure pseudo-elements align with text */
+        font-weight: 700;
+}
+
+.cta p::before,
+.cta p::after
+{
+        content: ""; /* Required for pseudo-elements */
+        position: absolute;
+        top: 50%; /* Center vertically */
+        width: 150px; /* Length of the line */
+        height: 2px; /* Thickness of the line */
+        background-color: var(--hover-color); /* Use the hover color variable */
+}
+
+.cta p::before
+{
+        left: -160px; /* Position to the left of the text */
+}
+
+.cta p::after
+{
+        right: -160px; /* Position to the right of the text */
+}
+
+.cta a
+{
+        border: 2px solid white;
+        color: var(--text-color);
+        padding: 15px 30px; /* Larger padding for a bigger button */
+        border-radius: 30px; /* Rounded corners */
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px; /* 16px */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        display: inline-block; /* Ensure padding works correctly */
+}
+
+.cta a:hover
+{
+        background-color: var(--hover-color); /* Change color on hover */
+        transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+
+.main
+{
+        background-image: url('images/backdrop.jpeg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+}
+
+.main div
+{
+        font-family: var(--font-primary);
+        color: var(--text-color);
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+}
+
+
+/* Hero Section Styles */
+.hero 
+{
+        background-image: url('images/hero.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 100px 20px;
+        text-align: center;
+        color: var(--text-color);
+        position: relative;
+        overflow: hidden;
+        opacity: 0; /* Initially hidden */
+}
+
+.hero::before 
+{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--navbar-overlay);
+        z-index: 1;
+}
+
+.hero-content 
+{
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        opacity: 0; /* Initially hidden */
+        transform: translateY(20px); /* Start slightly below */
+}
+
+.hero h1 
+{
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: var(--text-color);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+}
+
+.hero p 
+{
+        font-size: 18px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        color: var(--text-color);
+}
+
+.hero .mission-icon
+{
+        font-size: 40px;
+        color: var(--hover-color);
+        margin-bottom: 20px;
+}
+
+.cta-button
+{
+        background-color: var(--hover-color);
+        color: var(--text-color);
+        padding: 15px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover 
+{
+        background-color: var(--primary-color);
+        transform: scale(1.05);
+}
+
+.slideshow-container 
+{
+        position: relative;
+        max-width: 90%; 
+        padding: 15px;
+        margin: 50px auto;
+        text-align: center;
+        background: white; /* White background for certificate look */
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.slideshow 
+{
+        position: relative;
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 20px;
+}
+
+.slide 
+{
+        display: none;
+        width: 100%;
+        transition: opacity 1s ease;
+        text-align: center;
+}
+
+.slide.active 
+{
+        display: block;
+}
+
+.slide img 
+{
+        width: 200px; /* Smaller image size */
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 20px; /* Space between image and text */
+}
+
+.slide-content 
+{
+        text-align: center;
+}
+
+.slide-content h1 
+{
+        font-family: var(--font-logo); /* Handwritten font for title */
+        font-size: 36px;
+        color: var(--primary-color);
+        margin: 0 0 10px 0;
+}
+
+.slide-content h2 
+{
+        font-size: 24px;
+        color: black;
+        margin: 0 0 20px 0;
+}
+
+.slide-content p 
+{
+        font-size: 16px;
+        color: black;
+        line-height: 1.6;
+        margin: 0 0 20px 0;
+}
+
+.slide-content .highlight 
+{
+        font-size: 18px;
+        color: var(--primary-color);
+        font-weight: bold;
+}
+
+.controls 
+{
+        margin-top: 20px; /* Space between slideshow and buttons */
+        text-align: center; /* Center the buttons */
+}
+
+.controls button
+{
+        background: var(--primary-color);
+        border: none;
+        color: var(--text-color);
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        margin: 0 10px; /* Space between buttons */
+}
+
+.controls button:hover 
+{
+        background: var(--hover-color);
+}
+.footer 
+{
+        text-align: center;
+        display: fixed;
+        padding: 15px;
+        text-decoration: none;
+        background-color: #2E8B57;
+        color: white;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+}
+
+.social-links a 
+{
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+        font-size: 18px;
+}
+
+.scroll
+{
+        background-image: url(images/backdrop.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+
+#check
+{
+	display: none;
+}
+
+.checkbtn
+{
+	display: none; 
+	font-size: 40px; 
+	color: var(--text-color); 
+	cursor: pointer;
+	order: 2;
+	margin-left: auto;
+	padding: 10px;
+	transition: color 0.3s ease; 
+}
+
+.checkbtn:hover
+{
+	color: var(--hover-color); 
+}
+
+@media (max-width: 1070px)
+{
+	.checkbtn
+	{
+		display: block;
+                color: white;
+		order: 1;
+		margin-right: 20px;
+	}
+
+	ul
+	{
+		position: fixed;
+		top: 80px;
+		right: -100%;
+		background-color: green;
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: all 0.3s;
+	}
+
+	ul li
+	{
+		margin: 20px 0;
+	}
+
+	ul li a
+	{
+		font-size: 20px;
+	}
+
+	#check:checked ~ ul
+	{
+		right: 0;
+	}
+}
