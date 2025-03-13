@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Stock Market Data</title>
+                <style>
+                        body 
+                        {
+                                font-family: Arial, sans-serif;
+                                background-color: #f4f4f9;
+                                color: #333;
+                                margin: 0;
+                                padding: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                min-height: 100vh;
+                        }
+                        h1 
+                        {
+                                color: #2c3e50;
+                                margin-bottom: 20px;
+                        }
+                        form 
+                        {
+                                margin-bottom: 20px;
+                        }
+                        input[type="text"] 
+                        {
+                                padding: 10px;
+                                font-size: 16px;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                width: 200px;
+                        }
+                        button 
+                        {
+                                padding: 10px 20px;
+                                font-size: 16px;
+                                background-color: #3498db;
+                                color: white;
+                                border: none;
+                                border-radius: 4px;
+                                cursor: pointer;
+                        }
+                        button:hover 
+                        {
+                                background-color: #2980b9;
+                        }
+                        #stock-data
+                        {
+                                background-color: #fff;
+                                padding: 20px;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                                max-width: 400px;
+                                width: 100%;
+                                text-align: center;
+                                margin-bottom: 20px;
+                                display: none; /* Hidden by default */
+                        }
+                        h2 
+                        {
+                                color: #34495e;
+                                margin-bottom: 15px;
+                        }
+                        p
+                        {
+                                font-size: 16px;
+                                margin: 10px 0;
+                                color: #555;
+                        }
+                        .price 
+                        {
+                                font-weight: bold;
+                                color: #27ae60;
+                        }
+                        .error 
+                        {
+                                color: #e74c3c;
+                                font-weight: bold;
+                        }
+                        .questions 
+                        {
+                                background-color: #fff;
+                                padding: 20px;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                                max-width: 800px;
+                                width: 100%;
+                                text-align: left;
+                        }
+                        .questions h2 
+                        {
+                                color: #2c3e50;
+                                margin-bottom: 15px;
+                        }
+                        .questions p 
+                        {
+                                font-size: 16px;
+                                color: #555;
+                                line-height: 1.6;
+                        }
+                </style>
+        </head>
+        <body>
+                <h1>Stock Market Data</h1>
+                <form id="stock-form">
+                        <input type="text" id="symbol" placeholder="Enter stock symbol (e.g., TSLA)" required>
+                        <button type="submit">Get Data</button>
+                </form>
+                <div id="stock-data"></div>
+
+                <div class="questions">
+                        <h2>Questions</h2>
+                        <p><strong>Describe the API you selected and why you selected it:</strong></p>
+                        <p>
+                                I selected the Finnhub API as it allows me to look at real time information for stocks which can be highly useful. Further, it satifies all the requirments for the assignment.
+                        </p>
+                        <p><strong>Cite the website where you found it:</strong></p>
+                        <p>
+                                I found the API at: <a href="https://finnhub.io/" target="_blank">https://finnhub.io/</a>
+                        </p>
+                        <p><strong>Describe the options/parameters you used for the API request:</strong></p>
+                        <p>
+                                To fetch stock data, I used the following parameters in the API request:
+                                <ul>
+                                        <li><code>symbol</code>: The stock symbol (e.g., TSLA for Tesla).</li>
+                                        <li><code>token</code>: My API key for authentication.</li>
+                                </ul>
+                        </p>
+                        <p><strong>Give an example of where this API would be helpful:</strong></p>
+                        <p>
+                                This will be useful to investors and traders allowing to analyse past data and current data to take real world important decisions
+                        </p>
+                </div>
+
+                <script>
+                        const apiKey = 'cv9k531r01qpd9s7lhe0cv9k531r01qpd9s7lheg';
+                        const form = document.getElementById('stock-form');
+                        const stockDataDiv = document.getElementById('stock-data');
+
+                        form.addEventListener('submit', function(event) 
+                        {
+                                event.preventDefault();
+                                const symbol = document.getElementById('symbol').value.trim().toUpperCase();
+
+                                if (!symbol) 
+                                {
+                                        alert('Please enter a stock symbol.');
+                                        return;
+                                }
+
+                                fetch(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`)
+                                .then(response => response.json())
+                                .then(data => 
+                                {
+                                        if (data.c === 0 && data.h === 0 && data.l === 0 && data.o === 0 && data.pc === 0) 
+                                        {
+                                                // not a valid stock
+                                                stockDataDiv.innerHTML = `<p class="error">Invalid stock symbol: ${symbol}. Please try again.</p>`;
+                                        } 
+                                        else 
+                                        {
+                                                // Valid symbol
+                                                stockDataDiv.innerHTML = `
+                                                        <h2>${symbol} Stock Data</h2>
+                                                        <p>Current Price: <span class="price">$${data.c}</span></p>
+                                                        <p>High Price: <span class="price">$${data.h}</span></p>
+                                                        <p>Low Price: <span class="price">$${data.l}</span></p>
+                                                        <p>Open Price: <span class="price">$${data.o}</span></p>
+                                                        <p>Previous Close: <span class="price">$${data.pc}</span></p>
+                                                `;
+                                        }
+                                        stockDataDiv.style.display = 'block';
+                                })
+                                .catch(error => 
+                                {
+                                        console.error('Error fetching stock data:', error);
+                                        stockDataDiv.innerHTML = `<p class="error">Error fetching data for ${symbol}. Please try again.</p>`;
+                                        stockDataDiv.style.display = 'block';
+                                });
+                        });
+                </script>
+        </body>
+</html>
